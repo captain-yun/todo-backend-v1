@@ -7,6 +7,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - echo Building the JAR file without tests...
+      - ./gradlew build -x test  # 테스트를 건너뛰고 빌드
       - echo Building the Docker image...
       - docker build -t 183631306266.dkr.ecr.ap-southeast-1.amazonaws.com/yjs-todo-backend:latest .
   post_build:
