@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 183631306266.dkr.ecr.ap-southeast-1.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t 183631306266.dkr.ecr.ap-southeast-1.amazonaws.com/yjs-todo-backend:latest .
+  post_build:
+    commands:
+      - echo Pushing the Docker image...
+      - docker push 183631306266.dkr.ecr.ap-southeast-1.amazonaws.com/yjs-todo-backend:latest
+      - echo Writing imagedefinitions.json file...
+      - printf '[{"name":"yjs-todo-backend","imageUri":"%s"}]' 183631306266.dkr.ecr.ap-southeast-1.amazonaws.com/yjs-todo-backend:latest > imagedefinitions.json
+artifacts:
+  files:
+    - imagedefinitions.json
