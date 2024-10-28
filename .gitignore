@@ -1,0 +1,42 @@
+# IntelliJ 관련 파일들
+.idea/
+*.iml
+*.iws
+out/
+
+# OS 별 임시 파일들
+.DS_Store
+Thumbs.db
+
+# Gradle 빌드 파일들
+/build/
+!/src/main/**/build/
+!/src/test/**/build/
+.gradle/
+gradle-app.setting
+gradle.properties
+
+# 로그 파일
+*.log
+
+# 스프링 부트 설정 파일 (예: 로컬에서만 사용하는 설정)
+application-*.yml
+application-*.properties
+application-*.json
+
+# 환경변수 파일
+.env
+
+# IntelliJ로 생성된 메타파일들
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# .jar, .war와 같은 빌드 산출물
+*.jar
+*.war
+
+# 기타 임시 파일
+.temp
+.vscode/
