@@ -34,7 +34,7 @@ application-*.json
 *.ipr
 
 # .jar, .war와 같은 빌드 산출물
-*.jar
+#*.jar
 *.war
 
 # 기타 임시 파일
